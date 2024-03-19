@@ -3,6 +3,7 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.codeActionsOnSave": {
 	"source.fixAll.eslint": true,
-	"source.organizeImports": true
-	}
+	"source.organizeImports": true,
+	},
+	"vscode-edge-devtools.webhint": false
 }

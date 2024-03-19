@@ -5,6 +5,7 @@
 		"firsttris.vscode-jest-runner",
 		"ms-playwright.playwright",
 		"dbaeumer.vscode-eslint",
-		"editorconfig.editorconfig"
+		"editorconfig.editorconfig",
+		"ms-edgedevtools.vscode-edge-devtools"
 	]
 }

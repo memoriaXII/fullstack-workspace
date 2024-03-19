@@ -1,0 +1,48 @@
+{
+	"resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"],
+	"configurations": [
+		{
+			"name": "debug-nx-prac-next",
+			"type": "node",
+			"request": "launch",
+			"runtimeExecutable": "pnpm",
+			"runtimeArgs": [
+				"nx",
+				"run",
+				"nx-prac-next:serve",
+				"-r",
+				"ts-node/register",
+				"-r",
+				"tsconfig-paths/register"
+			],
+			"serverReadyAction": {
+				"action": "debugWithEdge",
+				"pattern": "started server on .+, url: (https?://.+)",
+				"uriFormat": "%s",
+				"webRoot": "${workspaceFolder}/apps/nx-prac-next",
+				"killOnServerStop": true
+			},
+			"outputCapture": "std",
+			"internalConsoleOptions": "openOnSessionStart",
+			"console": "internalConsole",
+			"env": {
+				"TS_NODE_IGNORE": "false",
+				"TS_NODE_PROJECT": "${workspaceFolder}/apps/nx-prac-next/tsconfig.json"
+			},
+			"cwd": "${workspaceFolder}/apps/nx-prac-next",
+			"skipFiles": ["<node_internals>/**"]
+		},
+		{
+			"name": "attach-to-edge-devtools",
+			"request": "attach",
+			"type": "vscode-edge-devtools.debug",
+			"url": "http://localhost:4200"
+		}
+	],
+	"compounds": [
+		{
+			"name": "Debug nx-prac-next on Server/Client",
+			"configurations": ["debug-nx-prac-next", "attach-to-edge-devtools"]
+		}
+	]
+}
