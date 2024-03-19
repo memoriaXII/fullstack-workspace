@@ -1,0 +1,9 @@
+{
+  "name": "nx-prac-next",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nx-prac-next",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project nx-prac-next --web",
+  "targets": {}
+}
