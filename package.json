@@ -4,7 +4,8 @@
 	"license": "MIT",
 	"scripts": {
 		"start:web": "npx nx dev nx-prac-next",
-		"lint:web": "npx nx run nx-prac-next:lint"
+		"lint:web": "npx nx run nx-prac-next:lint",
+		"commit":"cz"
 	},
 	"private": true,
 	"dependencies": {
