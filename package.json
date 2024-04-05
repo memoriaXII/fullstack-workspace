@@ -5,6 +5,8 @@
   "scripts": {
     "start:web": "npx nx dev nx-prac-next",
     "lint:web": "npx nx run nx-prac-next:lint",
+    "ui:story": "npx nx storybook ui",
+		"ui:test": "npx nx test nx-prac-ui",
     "commit": "cz"
   },
   "private": true,
