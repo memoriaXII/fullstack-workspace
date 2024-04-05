@@ -19,7 +19,7 @@
     "build": {
       "executor": "@nx/web:webpack",
       "options": {
-        "postcssConfig": "apps/{your app here}/postcss.config.js"
+        "postcssConfig": "apps/nx-prac-next/postcss.config.js"
       }
     }
   }
