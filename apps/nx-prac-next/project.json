@@ -15,5 +15,12 @@
 			"cacheLocation": "node_modules/.cache/eslint"
       }
     },
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@nx/web:webpack",
+      "options": {
+        "postcssConfig": "apps/{your app here}/postcss.config.js"
+      }
+    }
+  }
 }
