@@ -6,7 +6,7 @@
     "start:web": "npx nx dev nx-prac-next",
     "lint:web": "npx nx run nx-prac-next:lint",
     "ui:story": "npx nx storybook nx-prac-ui",
-		"ui:test": "npx nx test nx-prac-ui",
+    "ui:test": "npx nx test nx-prac-ui",
     "commit": "cz"
   },
   "private": true,
@@ -21,6 +21,7 @@
     "@babel/preset-react": "^7.14.5",
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
+    "@nrwl/vite": "^18.2.3",
     "@nx/devkit": "18.1.2",
     "@nx/eslint": "18.1.2",
     "@nx/eslint-plugin": "18.1.2",
@@ -51,6 +52,9 @@
     "@types/react-dom": "18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
+    "@vitejs/plugin-react": "^4.2.0",
+    "@vitest/coverage-v8": "^1.0.4",
+    "@vitest/ui": "^1.3.1",
     "autoprefixer": "^10.4.19",
     "babel-jest": "^29.4.1",
     "commitizen": "^4.3.0",
@@ -66,6 +70,8 @@
     "husky": "^9.0.11",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
+    "jest-environment-node": "^29.4.1",
+    "jsdom": "~22.1.0",
     "nx": "18.1.2",
     "postcss": "^8.4.38",
     "prettier": "^2.6.2",
@@ -74,7 +80,8 @@
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "typescript": "~5.3.2",
-    "vite": "~5.0.0"
+    "vite": "~5.0.0",
+    "vitest": "^1.3.1"
   },
   "volta": {
     "node": "18.17.0"
