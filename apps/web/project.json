@@ -1,7 +1,7 @@
 {
-  "name": "nx-prac-next",
+  "name": "web",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/nx-prac-next",
+  "sourceRoot": "apps/web",
   "projectType": "application",
   "tags": [],
   "lint": {
@@ -11,7 +11,7 @@
     ],
     "options": {
       "lintFilePatterns": [
-        "apps/nx-prac-next/**/*.{ts,tsx,js,jsx}"
+        "apps/web/**/*.{ts,tsx,js,jsx}"
       ],
       "fix": true,
       "cache": true,
@@ -22,7 +22,7 @@
     "build": {
       "executor": "@nx/web:webpack",
       "options": {
-        "postcssConfig": "apps/nx-prac-next/postcss.config.js"
+        "postcssConfig": "apps/web/postcss.config.js"
       }
     }
   }

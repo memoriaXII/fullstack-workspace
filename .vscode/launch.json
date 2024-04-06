@@ -2,14 +2,14 @@
 	"resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"],
 	"configurations": [
 		{
-			"name": "debug-nx-prac-next",
+			"name": "debug-web",
 			"type": "node",
 			"request": "launch",
 			"runtimeExecutable": "pnpm",
 			"runtimeArgs": [
 				"nx",
 				"run",
-				"nx-prac-next:serve",
+				"web:serve",
 				"-r",
 				"ts-node/register",
 				"-r",
@@ -19,7 +19,7 @@
 				"action": "debugWithEdge",
 				"pattern": "started server on .+, url: (https?://.+)",
 				"uriFormat": "%s",
-				"webRoot": "${workspaceFolder}/apps/nx-prac-next",
+				"webRoot": "${workspaceFolder}/apps/web",
 				"killOnServerStop": true
 			},
 			"outputCapture": "std",
@@ -27,9 +27,9 @@
 			"console": "internalConsole",
 			"env": {
 				"TS_NODE_IGNORE": "false",
-				"TS_NODE_PROJECT": "${workspaceFolder}/apps/nx-prac-next/tsconfig.json"
+				"TS_NODE_PROJECT": "${workspaceFolder}/apps/web/tsconfig.json"
 			},
-			"cwd": "${workspaceFolder}/apps/nx-prac-next",
+			"cwd": "${workspaceFolder}/apps/web",
 			"skipFiles": ["<node_internals>/**"]
 		},
 		{
@@ -41,8 +41,8 @@
 	],
 	"compounds": [
 		{
-			"name": "Debug nx-prac-next on Server/Client",
-			"configurations": ["debug-nx-prac-next", "attach-to-edge-devtools"]
+			"name": "Debug web on Server/Client",
+			"configurations": ["debug-web", "attach-to-edge-devtools"]
 		}
 	]
 }

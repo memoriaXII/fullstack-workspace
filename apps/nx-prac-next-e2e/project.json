@@ -1,10 +1,10 @@
 {
-  "name": "nx-prac-next-e2e",
+  "name": "web-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/nx-prac-next-e2e/src",
+  "sourceRoot": "apps/web-e2e/src",
   "implicitDependencies": [
-    "nx-prac-next"
+    "web"
   ],
-  "// targets": "to see all targets run: nx show project nx-prac-next-e2e --web",
+  "// targets": "to see all targets run: nx show project web-e2e --web",
   "targets": {}
 }

@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:web": "npx nx dev nx-prac-next",
-    "lint:web": "npx nx run nx-prac-next:lint",
+    "dev": "npx nx dev web",
+    "lint:web": "npx nx run web:lint",
     "ui:story": "npx nx storybook nx-prac-ui",
     "ui:test": "npx nx test nx-prac-ui",
     "commit": "cz"
