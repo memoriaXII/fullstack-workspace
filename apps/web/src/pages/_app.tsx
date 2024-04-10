@@ -1,13 +1,10 @@
 import '../styles/globals.css';
-
-// import { DefaultSeo } from 'next-seo';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { AppContext, AppProps } from 'next/app';
 import { default as NextApp } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-// import { Header } from '../components/Header';
-// import SEO from '../next-seo.config';
 import { WagmiConfig } from '../providers/wagmi';
 
 declare global {
@@ -17,6 +14,7 @@ declare global {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient();
   const router = useRouter();
   useEffect(() => {
     const handler = (page: any) => {
@@ -43,12 +41,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link href='/favicon.ico?v=1' rel='shortcut icon' />
       </Head>
       <WagmiConfig>
-        {/* <QueryClientProvider>
+        <QueryClientProvider client={queryClient}>
+          {/* <QueryClientProvider>
           <WagmiStoreVersionCheck>{children}</WagmiStoreVersionCheck>
         </QueryClientProvider> */}
-        {/* <DefaultSeo {...SEO} />
+          {/* <DefaultSeo {...SEO} />
         <Header /> */}
-        <Component {...pageProps} />
+          <Component {...pageProps} />
+        </QueryClientProvider>
       </WagmiConfig>
       {/* <ThemeProvider forcedTheme='dark'>
         <DefaultSeo {...SEO} />

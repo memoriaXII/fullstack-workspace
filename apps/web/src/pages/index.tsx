@@ -1,4 +1,62 @@
+import React from 'react';
 import { FC } from 'react';
+
+import { useAccount, useDisconnect, useEnsAvatar, useEnsName } from 'wagmi';
+
+import { Connector, useConnect } from 'wagmi';
+
+export function WalletOptions() {
+  const { connectors, connect } = useConnect();
+
+  return connectors.map((connector) => (
+    <WalletOption key={connector.uid} connector={connector} onClick={() => connect({ connector })} />
+  ));
+}
+
+function WalletOption({ connector, onClick }: { connector: Connector; onClick: () => void }) {
+  const [ready, setReady] = React.useState(false);
+
+  React.useEffect(() => {
+    (async () => {
+      const provider = await connector.getProvider();
+      setReady(!!provider);
+    })();
+  }, [connector]);
+
+  return (
+    <button disabled={!ready} onClick={onClick}>
+      {connector.name}
+    </button>
+  );
+}
+
+export function Account() {
+  const { address } = useAccount();
+  const { disconnect } = useDisconnect();
+  const { data: ensName } = useEnsName({ address });
+  const { data: ensAvatar } = useEnsAvatar({ name: ensName! });
+
+  return (
+    <div>
+      {ensAvatar && <img alt='ENS Avatar' src={ensAvatar} />}
+      {address && <div>{ensName ? `${ensName} (${address})` : address}</div>}
+      <button onClick={() => disconnect()}>Disconnect</button>
+    </div>
+  );
+}
+
+function Profile() {
+  const { address } = useAccount();
+  const { data, error, status } = useEnsName({ address });
+  if (status === 'pending') return <div className='text-white'>Loading ENS name</div>;
+  if (status === 'error') return <div className='text-white'>Error fetching ENS name: {error.message}</div>;
+  return <div className='text-white'>ENS name: {data}</div>;
+}
+function ConnectWallet() {
+  const { isConnected } = useAccount();
+  if (isConnected) return <Account />;
+  return <WalletOptions />;
+}
 
 const Home: FC = () => {
   return (
@@ -23,10 +81,11 @@ const Home: FC = () => {
                 </div>
               </div>
               <div className='flex gap-5 justify-between px-5 text-lg leading-5 text-center'>
-                <div className='my-auto text-white'>Sign in</div>
-                <div className='justify-center px-4 py-3 bg-white rounded-[45.66px] text-neutral-900'>
+                <div className='justify-center px-4 py-3 bg-neutral-800 border-zinc-950 rounded-lg text-white'>
                   Create account
                 </div>
+                <Profile />
+                <ConnectWallet />
               </div>
             </div>
           </div>
