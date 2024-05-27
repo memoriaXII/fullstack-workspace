@@ -24,7 +24,7 @@ function WalletOption({ connector, onClick }: { connector: Connector; onClick: (
   }, [connector]);
 
   return (
-    <button disabled={!ready} onClick={onClick}>
+    <button className='text-white' disabled={!ready} onClick={onClick}>
       {connector.name}
     </button>
   );
@@ -39,8 +39,10 @@ export function Account() {
   return (
     <div>
       {ensAvatar && <img alt='ENS Avatar' src={ensAvatar} />}
-      {address && <div>{ensName ? `${ensName} (${address})` : address}</div>}
-      <button onClick={() => disconnect()}>Disconnect</button>
+      {address && <div className='text-white'>{ensName ? `${ensName} (${address})` : address}</div>}
+      <button className='text-white' onClick={() => disconnect()}>
+        Disconnect
+      </button>
     </div>
   );
 }
